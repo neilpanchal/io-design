@@ -1,0 +1,267 @@
+<!-- content.lens -->
+<koken:include file="inc/header.html" />
+
+<koken:load>
+
+	<koken:head>
+		<meta property="og:site_name" content="{{ site.title }}" />
+		<meta property="og:title" content="{{ content.title|content.filename strip_html="true" }}" />
+		<meta property="og:description" content="{{ content.caption strip_html="true" }}" />
+		<meta property="og:type" content="website" />
+		<meta property="og:image" content="{{ content.presets.medium_large.url }}" />
+		<meta property="og:image:width" content="{{ content.presets.medium_large.width }}" />
+		<meta property="og:image:height" content="{{ content.presets.medium_large.height }}" />
+		<meta property="og:url" content="{{ content.url }}" />
+		<koken:content_image>
+			<koken:not empty="profile.twitter">
+				<meta name="twitter:card" content="photo" />
+				<meta name="twitter:site" content="@{{ profile.twitter }}" />
+				<meta name="twitter:creator" content="@{{ profile.twitter }}" />
+			</koken:not>
+		</koken:content_image>
+	</koken:head>
+
+	<div id="content">
+		<header class="secondary">
+			<div class="site-title">
+				<h1>
+					<koken:parent>
+						<koken:parent>
+						<koken:link title="View {{ album.title }}">{{ album.title }}</koken:link> /
+						</koken:parent>
+					</koken:parent>
+					<koken:parent>
+						<koken:link title="View {{ album.title }}">{{ album.title }}</koken:link>
+					</koken:parent>
+					 /
+					<koken:parent>
+						{{ _parent.content.context.position }} {{ language.of }} {{ album.counts.total }}
+					</koken:parent>
+				</h1>
+			</div>
+		</header>
+
+
+			<div class="pad">
+
+			<div id="content-pagination">
+
+				<koken:previous>
+					<koken:link class="content-pag prev" bind_to_key="left"></koken:link>
+				</koken:previous>
+
+				<koken:next>
+					<koken:link class="content-pag next" bind_to_key="right"></koken:link>
+				</koken:next>
+
+			</div>
+
+				<div class="media {{ settings.spin_style }} spin_{{ settings.show_content_load_spin }}">
+
+					<koken:content_image>
+						<koken:if true="{{ settings.use_lightbox_content }}">
+								<koken:img id="media-img" class="content_img" lazy="true"/>
+						<koken:else>
+								<koken:img id="media-img" class="content_img" lazy="true"/>
+						</koken:if>
+					</koken:content_image>
+
+					<koken:content_video>
+						<koken:video />
+					</koken:content_video>
+
+					<koken:if true="settings.show_content_load_spin"><koken:if data="settings.spin_style" equals="halfcirc"><div class="spinner_pos"><div class="spinner"></div></div></koken:if></koken:if>
+
+				</div> <!-- close .media -->
+<!--
+				<div id="content-caption">
+
+					<div class="col l">
+
+						<div class="line">
+							<koken:if true="settings.content_show_title">
+								<h2>{{ content.title | content.filename }}</h2>
+							</koken:if>
+						</div>
+						<koken:if true="settings.content_show_date">
+							<div class="line">
+								<koken:time />
+							</div>
+						</koken:if>
+						<koken:if true="settings.content_show_parent_album">
+							<koken:parent>
+								<div class="line">
+									From the {{ labels.album.singular case="lower" }} <koken:link title="View {{ album.title }}">
+										{{ album.title }}</koken:link>
+								</div>
+							</koken:parent>
+						</koken:if>
+
+					</div>
+
+					<div class="col r">
+
+							<koken:if true="settings.content_show_caption">
+								<koken:not empty="content.caption">
+									<div class="line">
+										{{ content.caption paragraphs="true" }}
+									</div>
+								</koken:not>
+							</koken:if>
+							<koken:if true="settings.content_show_meta">
+								<koken:categories>
+								<div class="line">
+									<koken:loop separator=", ">
+										<koken:link title="View all {{ labels.content.plural case='lower' }} in {{ category.title }}">
+											{{ category.title }}
+										</koken:link>
+									</koken:loop>
+								</div>
+								</koken:categories>
+								<koken:tags>
+								<div class="line">
+									<koken:loop separator=" "><koken:link title="View all {{ labels.content.plural case='lower' }} in {{ tag.title }}" class="tag">{{ tag.title }}</koken:link></koken:loop>
+								</div>
+								</koken:tags>
+							</koken:if>
+							<koken:if true="settings.content_show_exif">
+								<koken:exif>
+								<div class="line">
+									<ul class="exif">
+										<koken:not empty="exif.model">
+											<li>{{ exif.model }}</li>
+										</koken:not>
+										<koken:not empty="exif.exposure">
+											<li>{{ exif.exposure }}</li>
+										</koken:not>
+										<koken:not empty="exif.aperture">
+											<li>{{ exif.aperture }}</li>
+										</koken:not>
+										<koken:not empty="exif.focal_length">
+											<li>{{ exif.focal_length }}</li>
+										</koken:not>
+										<koken:not empty="exif.iso_speed_ratings">
+											<li>{{ exif.iso_speed_ratings }}</li>
+										</koken:not>
+									</ul>
+								</div>
+								</koken:exif>
+							</koken:if>
+							<koken:if true="settings.content_show_license">
+							<div class="line">
+								{{ content.license.clean }}
+							</div>
+							</koken:if>
+							<koken:if true="settings.content_show_dl">
+								<koken:max_download>
+									<div class="line">
+										Download image: <koken:link title="Download">
+										{{ max_download.label }}&nbsp;({{ max_download.width }}x{{ max_download.height }})
+									</koken:link>
+									</div>
+								</koken:max_download>
+							</koken:if>
+
+							<koken:if true="settings.social_bttns_show_one">
+
+								<koken:if true="content.public">
+									<div class="line">
+							            Share:
+							            <koken:include file="inc/share-links.html" />
+						           	</div>
+
+					       		</koken:if>
+
+				        	</koken:if>
+
+				        	<koken:if true="{{ settings.content_show_source }}">
+					        	<koken:not empty="{{ content.source.title }}">
+					        	<div class="line">
+									<a href="{{ content.source.url }}" onclick="return !window.open(this.href);" title="View on {{ content.source.title }}">View on {{ content.source.title }}</a>
+								</div>
+								</koken:not>
+							</koken:if>
+
+							<koken:if true="settings.show_disc_content">
+
+								<div id="kdiscuss">
+
+									<koken:discussion>
+
+										{{ discussion }}
+
+									</koken:discussion>
+
+								</div>
+
+							</koken:if>
+
+					</div>
+
+				</div> -->
+
+			</div> <!-- close .pad -->
+
+	</div> <!-- close #content -->
+	<div id="prev-next">
+		<koken:previous>
+			<koken:link class="header-pag prev" bind_to_key="left" title="{{ language.view_previous }}">
+				Prev
+			</koken:link>
+		</koken:previous>
+		<koken:next>
+			<koken:link class="header-pag next" bind_to_key="right" title="{{ language.view_next }}">Next</koken:link>
+		</koken:next>
+	</div>
+	<script>
+
+		$(function() {
+
+			$(window).resize(function() {
+				var b = $('footer.main').height() + $('header.main').height() + parseInt($('#container').css('paddingTop')) + ($('#content-pagination').css('position') === 'static' ? 22 : 0);
+				$('.media img').css('max-height', $(window).height()*0.75);
+			}).trigger('resize');
+
+			$(window).on('k-img-resize k-image-loaded', function(e, img) {
+				var $img = $(img);
+				if ($img.hasClass('k-lazy-loaded') && $img.css('max-height') === $img.height() + 'px') {
+					$img.attr('width', null);
+				}
+				if ($img.hasClass('k-lazy-loaded')) {
+					// Get content image height & width
+					var h = $("#media-img").height();
+					var w = $("#media-img").width();
+
+					var ch = $("div.pad").height();
+					var cw = $("div.pad").width();
+					$("a.content-pag").css({'height':(h+'px')});
+					$("a.content-pag").css({'width':(w/2+'px')});
+					$("a.content-pag.prev").css({'left':((cw-w)/2+'px')});
+					$("a.content-pag.next").css({'right':((cw-w)/2+'px')});
+					// if (h > w) {
+					// 	// This is a Portrait Image
+					// 	$img.css('max-height', '48rem');
+					// }
+					// console.log(h, w);
+					// console.log(ch, cw);
+
+					// $img.attr('width', null);
+
+
+					// $("a.content-pag").height(h);
+					// $("a.content-pag").width(w/2);
+
+				}
+
+			});
+
+
+
+
+		});
+
+	</script>
+
+</koken:load>
+
+<koken:include file="inc/footer.html" />

@@ -1,0 +1,140 @@
+<!-- essay.lens -->
+<koken:include file="inc/header.html" />
+
+	<koken:load>
+
+		<koken:head>
+			<meta property="og:site_name" content="{{ site.title }}" />
+			<meta property="og:title" content="{{ essay.title strip_html="true" }}" />
+			<meta property="og:description" content="{{ essay.excerpt strip_html="true" }}" />
+			<meta property="og:url" content="{{ essay.url }}" />
+			<meta property="og:type" content="article" />
+			<meta property="og:image" content="{{ essay.featured_image.presets.medium_large.url }}" />
+			<meta property="og:image:width" content="{{ essay.featured_image.presets.medium_large.width }}" />
+			<meta property="og:image:height" content="{{ essay.featured_image.presets.medium_large.height }}" />
+			<meta name="medium" content="article" />
+			<koken:not empty="profile.twitter">
+				<meta name="twitter:card" content="summary_large_image" />
+				<meta name="twitter:title" content="{{ essay.title truncate="70" }}" />
+				<meta name="twitter:site" content="@{{ profile.twitter }}" />
+				<meta name="twitter:creator" content="@{{ profile.twitter }}" />
+				<meta name="twitter:description" content="{{ essay.excerpt truncate="200" strip_html="true" }}" />
+				<meta name="twitter:image" content="{{ essay.featured_image.presets.medium_large.url }}" />
+			</koken:not>
+		</koken:head>
+
+		<div id="essay_{{ essay.id }}">
+
+			<koken:if data="{{ settings.cover_type_text }}" equals="image">
+
+				<koken:include file="inc/essay-cover.html" />
+
+			</koken:if>
+
+				<div id="text" class="essays">
+
+					<article>
+
+						<header class="secondary">
+							<div class="site-title">
+								<h1><koken:link to="essays" title="View {{ location.here }}">{{ labels.essay.singular }}</koken:link></h1>
+							</div>
+						</header>
+
+						<koken:include file="inc/article.html" />
+
+
+
+							<koken:topics>
+							<div class="topics">
+						        <koken:loop>View Album:
+						        <koken:link title="View {{ album.title }}" lightbox="true">
+						           	 {{ album.title }}
+						        </koken:link>
+						          <div class="topic">
+						            <koken:link title="View {{ album.title }}" lightbox="true">
+						              <koken:covers limit="1">
+						                <koken:loop>
+						                  <div class="cell">
+						                    <koken:img/>
+						                  </div>
+						                </koken:loop>
+						              </koken:covers>
+						            </koken:link>
+						          </div>
+						        </koken:loop>
+						      </div>
+						    </koken:topics>
+
+						<footer>
+						<span class="meta">
+
+<!-- 						     <koken:topics>
+						          <p id="essay_topics">
+						               See more in
+						               <koken:loop separator=", ">
+						                    <koken:link title="View {{ album.title }}">
+						                         {{ album.title }}
+						                    </koken:link>
+						               </koken:loop>
+						          </p>
+						     </koken:topics> -->
+						     <koken:categories>
+						          <p id="essay_categories">
+						               {{ labels.category.plural }} -
+						               <koken:loop separator=" / ">
+						                    <koken:link title="View all {{ labels.essay.plural case='lower' }} in {{ category.title }}">
+						                         {{ category.title }}
+						                    </koken:link>
+						               </koken:loop>
+						          </p>
+						     </koken:categories>
+
+						     <koken:tags>
+						          <p id="essay_tags">
+						          {{ labels.tag.plural }} -
+						               <koken:loop separator=" / ">
+						                    <koken:link class="tag" title="View all {{ labels.essay.plural case='lower' }} in {{ tag.title }}">{{ tag.title }}</koken:link>
+						               </koken:loop>
+						          </p>
+						     </koken:tags>
+
+						     <koken:if true="settings.social_bttns_show_one">
+								<p id="essay_social">
+								Share -  <koken:link share="twitter" class="share_twitter"><i class="kicon-twitter"></i></koken:link> / <koken:link share="facebook" class="share_facebook"><i class="kicon-facebook"></i></koken:link> / <koken:link share="pinterest" class="share_pinterest"><i class="kicon-pinterest"></i></koken:link> / <koken:link share="tumblr" class="share_tumblr"><i class="kicon-tumblr"></i></koken:link> / <koken:link share="google-plus" class="share_gplus"><i class="kicon-gplus"></i></koken:link>
+								</p>
+						    </koken:if>
+
+
+						</span>
+						</footer>
+
+						<koken:if true="settings.show_disc_essay">
+							<div id="kdiscuss">
+								<koken:discussion>
+									{{ discussion }}
+								</koken:discussion>
+							</div>
+						</koken:if>
+					</article>
+					<div id="content-pag">
+
+<!-- 						<koken:next>
+							<koken:link title="{{ essay.title }}">&larr; {{ essay.title }}</koken:link>&nbsp;&nbsp;&nbsp;&nbsp;
+						</koken:next> -->
+
+						<koken:link to="essays"><i>&#8592;</i> View all posts</koken:link>
+
+						<!-- <koken:previous>
+							&nbsp;&nbsp;&nbsp;&nbsp;<koken:link title="{{ essay.title }}">{{ essay.title }} &rarr; </koken:link>
+						</koken:previous> -->
+
+					</div>
+
+				</div>
+
+		</div>
+
+	</koken:load>
+
+<koken:include file="inc/footer.html" />

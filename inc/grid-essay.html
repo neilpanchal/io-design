@@ -1,0 +1,34 @@
+<div id="kpgrid">
+
+	<div id="kpgrid_wrap">
+
+		<div id="kpgrid_content" class="{{ settings.spin_style }} spin_{{ settings.show_content_load_spin }}">
+
+			<koken:loop>
+
+				<div class="kpgriditem hover_fade type_{{ content.file_type }}">
+
+
+
+
+
+							<koken:img lazy="true" />
+
+
+
+						<koken:if true="settings.show_content_load_spin">
+							<koken:if data="settings.spin_style" equals="halfcirc"><div class="spinner_pos"><div class="spinner"></div></div>
+							</koken:if>
+						</koken:if>
+
+				</div>
+
+			</koken:loop>
+
+		</div>
+
+	</div>
+
+</div>
+
+<koken:keyboard_scroll element=".pillar .kpgriditem" />

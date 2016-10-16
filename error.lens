@@ -1,0 +1,20 @@
+<!-- error.lens -->
+<koken:include file="inc/header.html" />
+
+	<section id="content">
+
+		<div id="text" class="pages" style="text-align:center;">
+
+			<p>
+				{{ routed_variables.code }}
+			</p>
+
+			<p>
+				Page not found. Please head back to the <koken:link to="front">front page</koken:link>.
+			</p>
+
+		</div>
+
+	</section>
+
+<koken:include file="inc/footer.html" />

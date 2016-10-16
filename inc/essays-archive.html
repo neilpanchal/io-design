@@ -1,0 +1,28 @@
+<koken:variable name="list" value="true" />
+
+<koken:load limit="{{ settings.essays_index_limit }}">
+	<article class="article_essay_archive">
+	<header class="secondary">
+		<div class="site-title">
+			<h1><koken:link to="essays" title="View {{ location.here }}">Blog</koken:link> / {{ archive.type.plural }} / {{ archive.title }}</h1>
+		</div>
+	</header>
+
+	<div id="text" class="essays show_title_{{ settings.essay_show_title }}">
+		<koken:loop>
+			<section>
+				<koken:include file="inc/article.html" />
+				<koken:discussion_count>
+					<p class="essay_comments">{{ discussion_count }}</p>
+				</koken:discussion_count>
+			</section>
+
+		</koken:loop>
+
+		  <p><koken:include file="inc/pagination.html" /></p>
+	</div>
+	</article>
+
+<koken:else>
+	<koken:note><strong>No essays found.</strong> Write some in Text.</koken:note>
+</koken:load>

@@ -1,0 +1,12 @@
+/*@import url(css/[$font_body].css);*/
+@import url(css/lightbox.css);
+#content {
+	posit
+}
+#content img {
+    max-width:2048px;
+}
+
+#lbox_share {
+	display:$lbox_share;
+}

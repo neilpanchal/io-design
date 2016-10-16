@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+
+	<link rel="apple-touch-icon-precomposed" sizes="57x57" href="http://panchal.io/favicon/apple-touch-icon-57x57.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://panchal.io/favicon/apple-touch-icon-114x114.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://panchal.io/favicon/apple-touch-icon-72x72.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://panchal.io/favicon/apple-touch-icon-144x144.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="60x60" href="http://panchal.io/favicon/apple-touch-icon-60x60.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="120x120" href="http://panchal.io/favicon/apple-touch-icon-120x120.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="76x76" href="http://panchal.io/favicon/apple-touch-icon-76x76.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="152x152" href="http://panchal.io/favicon/apple-touch-icon-152x152.png" />
+	<link rel="icon" type="image/png" href="http://panchal.io/favicon/favicon-196x196.png" sizes="196x196" />
+	<link rel="icon" type="image/png" href="http://panchal.io/favicon/favicon-96x96.png" sizes="96x96" />
+	<link rel="icon" type="image/png" href="http://panchal.io/favicon/favicon-32x32.png" sizes="32x32" />
+	<link rel="icon" type="image/png" href="http://panchal.io/favicon/favicon-16x16.png" sizes="16x16" />
+	<link rel="icon" type="image/png" href="http://panchal.io/favicon/favicon-128.png" sizes="128x128" />
+	<meta name="application-name" content="Neil Panchal"/>
+	<meta name="msapplication-TileColor" content="#FFFFFF" />
+	<meta name="msapplication-TileImage" content="http://panchal.io/favicon/mstile-144x144.png" />
+	<meta name="msapplication-square70x70logo" content="http://panchal.io/favicon/mstile-70x70.png" />
+	<meta name="msapplication-square150x150logo" content="http://panchal.io/favicon/mstile-150x150.png" />
+	<meta name="msapplication-wide310x150logo" content="http://panchal.io/favicon/mstile-310x150.png" />
+	<meta name="msapplication-square310x310logo" content="http://panchal.io/favicon/mstile-310x310.png" />
+
+    <koken:meta />
+    <koken:title />
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,400i,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Fjord+One" rel="stylesheet">
+
+    <koken:asset file="jquery.pjax.js" common="true" />
+    <koken:asset file="jquery.pjax-transition.js" common="true" />
+    <koken:asset file="reset.css" common="true" />
+    <koken:asset file="pillar.js" common="true" />
+    <koken:asset file="css/kicons.css" />
+    <koken:asset file="css/kvideo.css" />
+    <koken:asset file="css/arrows.css" />
+    <koken:settings />
+    <koken:asset file="nprogress.js" common="true"/>
+    <koken:asset file="js/jquery.sidr.min.js" />
+    <koken:asset file="js/jquery.scrollTo.min.js" />
+    <koken:asset file="js/spinzero.js" />
+    <koken:asset file="js/jquery.fittext.js" />
+
+</head>
+
+<body class="footer_{{ settings.footer_hide }} current_{{ settings.uline_current }}">
+
+	<div id="sidr-left" class="mob">
+ 		<koken:navigation nested="true"/>
+ 		<koken:navigation group="footer" />
+	</div>
+	<div id="left-container">
+		<header class="main">
+
+				<a id="mob-menu" href="#mob-menu" title="Open mobile menu"><i class="kicon-mob-menu"></i></a>
+
+				<div class="site-logo">
+
+					<koken:if data="settings.site_title_type" equals="text">
+						<h1><koken:link to="front" title="{{ labels.home.singular }}">{{ site.title }}</koken:link></h1>
+					<koken:else>
+						<koken:not empty="settings.site_title_img_url">
+							<koken:link class="logo" to="front" title="{{ labels.home.singular }}"><img src="{{ settings.site_title_img_url }}" alt="{{ site.title }}" class="custom_logo"></koken:link>
+						<koken:else>
+							<span id="title_ph"></span>
+						</koken:not>
+					</koken:if>
+
+				</div>
+
+		</header>
+
+		<nav>
+			<koken:navigation nested="true" />
+			<span class="k-nav-social">
+				<koken:navigation group="footer" nested="true"  />
+			</span>
+			<koken:if true="settings.show_copyright">
+			<span class="copyright"> {{ site.copyright }} </span>
+			</koken:if>
+		</nav>
+	</div>
+	<div id="container">

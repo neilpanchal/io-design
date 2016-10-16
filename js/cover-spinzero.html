@@ -1,0 +1,44 @@
+<script>
+function sizeCover() {
+	var wh = $(window).height(),
+		ww = $(window).width(),
+		fh = 0,
+		ph = parseInt($('#container').css('paddingTop')),
+		nh = parseInt($('header.main').height()),
+		hh = $('header.main').is(':visible') ? $('header.main').outerHeight() : 0;
+
+	if ($('footer.main').is(':visible')) {
+		fh = $('footer.main').css('position') === "fixed" ? $('footer.main').outerHeight() : 0;
+	}
+
+	if (ww < 768 && ww > 480) {
+
+		$('header.cover').css({'height': ww/2});
+
+	} else if (ww <= 480) {
+
+		$('header.cover').css({'height': $('header.cover').width()});
+
+	} else {
+
+		$('header.cover').css({'height': ww/{{ settings.cover_height}}});
+
+	}
+}
+
+function coverText() {
+	$(".cover_inside h1").fitText(0.8, { minFontSize: '16px', maxFontSize: '100px' });
+	$(".cover_content").css({'display': '{{settings.cover_title_show}}'});
+}
+
+$(document).ready(function(){
+	sizeCover();
+	coverText();
+});
+
+$(window).on('resize', function(e) {
+	sizeCover();
+	coverText();
+});
+
+</script>

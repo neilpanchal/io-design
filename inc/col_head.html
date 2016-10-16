@@ -1,0 +1,49 @@
+<header class="page">
+
+	<h1>{{ album.title }}</h1>
+
+	{{ album.description paragraphs="true" }}
+
+	<koken:if true="settings.cover_show_meta">
+
+		<koken:topics>
+              <p id="essay_topics">
+                   Read more in
+                   <koken:loop separator=", ">
+                        <koken:link title="View {{ title }}">
+                             {{ title }}
+                        </koken:link>
+                   </koken:loop>
+              </p>
+         </koken:topics>
+
+		<koken:categories>
+		<p>
+			<koken:loop separator=", ">
+				<koken:link title="View all {{ labels.album.plural case='lower' }} in {{ category.title }}">
+					{{ category.title }}
+				</koken:link>
+			</koken:loop>
+		</p>
+		</koken:categories>
+		<koken:tags>
+		<p>
+			<koken:loop separator=" "><koken:link title="View all {{ labels.album.plural case='lower' }} in {{ tag.title }}" class="tag">{{ tag.title }}</koken:link></koken:loop>
+		</p>
+		</koken:tags>
+	</koken:if>
+
+	<koken:if true="settings.social_bttns_show_one">
+
+		<koken:if true="album.public">
+
+			<div class="line">
+	            Share:
+	            <koken:include file="inc/share-links.html" />
+	        </div>
+
+   		</koken:if>
+
+	</koken:if>
+
+</header>

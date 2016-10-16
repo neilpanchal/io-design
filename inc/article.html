@@ -1,0 +1,18 @@
+<header class="essay_show_title_{{ settings.essay_show_title }}">
+
+
+
+  <h1><koken:link title="View {{ essay.title }}">{{ essay.title }}</koken:link></h1>
+
+</header>
+
+<!-- <koken:if true="{{ settings.essay_show_date }}"><koken:time /></koken:if> -->
+<main>
+	{{ essay.content }}
+
+</main>
+<koken:more>
+  <p>
+      <koken:link title="{{ essay.title }}" class="read_more">{{ essay.read_more_label }} <i>&#8594;</i></koken:link>
+  </p>
+</koken:more>
