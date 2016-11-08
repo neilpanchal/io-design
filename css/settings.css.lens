@@ -682,16 +682,18 @@ article figure a {
     border-bottom: 0;
 }
 
+article div.article-figure {
+	width: 60%;
+	margin: 2rem auto;
+}
+
 .k-content-embed {
     margin: 2rem auto;
-    width: 60%;
+    width: 100%;
 }
 
 .k-content img {
     max-width: 100%;
-}
-article span.profile-image figure {
-    max-width: 400px;
 }
 
 .k-content-text {
