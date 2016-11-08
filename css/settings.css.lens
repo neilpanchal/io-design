@@ -1,12 +1,4 @@
 /*
- # Copyright (c) 2004 - 2015 Neil Panchal
- # All code snippers/plugins and extensions hold their open-source license
-
- # Site built with Koken and this theme was coded using Koken tutorials
- # Massive thanks to folks at Koken for a fantastic CMS
- */
-
-/*
 YELLOW      = #B58900
 ORANGE      = #BA5400
 RED         = #B02F30
@@ -345,7 +337,7 @@ div#left-container {
     min-width: 14rem;
     height: auto;
     min-height: 16.25rem;
-    margin-right: 1em;
+    margin-right: 4em;
     text-transform: $link_case;
     background: $bgcolor_h;
 }
@@ -504,7 +496,7 @@ article {
 	margin-bottom: 2rem;
 }
 
-article section {
+article section, section {
     margin-bottom: 4rem;
 }
 
@@ -680,7 +672,7 @@ article hr {
 
 
 article figure {
-    /*display:block;*/
+    display:block;
     position: relative;
     text-align: center;
 }
@@ -691,7 +683,8 @@ article figure a {
 }
 
 .k-content-embed {
-    margin: 2rem 0;
+    margin: 2rem auto;
+    width: 60%;
 }
 
 .k-content img {
@@ -1077,6 +1070,7 @@ a.content-pag {
 }
 
 a.content-pag.prev {
+	margin: 0 20px;
     left: 0;
     cursor: url('../icons/2190_32px.png'), auto;
 	cursor: -webkit-image-set(
@@ -1085,6 +1079,7 @@ a.content-pag.prev {
 }
 
 a.content-pag.next {
+	margin: 0 20px;
     right: 0;
     cursor: url('../icons/2192_32px.png'), auto;
 	cursor: -webkit-image-set(
@@ -1100,6 +1095,14 @@ div#prev-next {
 	text-align: center;
 }
 
+div #prev-next a.header-page.next, div #prev-next a.header-page.prev {
+	border: none;
+	margin: 0 10px;
+}
+div #prev-next a.header-page.next span, div #prev-next a.header-page.prev span{
+	font-family: "Times New Roman", serif;
+	font-size: 16px;
+}
 /* PAGE HEADER
 ================================================== */
 
@@ -1429,6 +1432,27 @@ body.k-lens-splash_fa footer.main .right_text {
 
 /* PILLAR GRID
 ================================================== */
+div#preview-grid {
+	position: relative;
+	overflow: hidden;
+}
+div.preview_item {
+	display: none;
+}
+div.preview_item {
+	max-width: 100%;
+	height: auto;
+}
+
+div.preview_item img {
+    width: 100%;
+    max-width: 100%;
+}
+
+section.album-preview-grid {
+	text-align: center;
+	margin-bottom: 0 auto 8rem;
+}
 
 div#kpgrid h2 {
     font-size: 0.875rem;
@@ -1438,7 +1462,7 @@ div#kpgrid h2 {
     text-transform: none;
 }
 
-body.k-lens-set #kpgrid {
+/* body.k-lens-set #kpgrid {
     margin: 0 -[$grid_col_spacing.set]px;
 }
 body.k-lens-sets #kpgrid {
@@ -1451,7 +1475,7 @@ body.k-lens-archive-albums #kpgrid {
 body.k-lens-album #kpgrid, body.k-lens-contents #kpgrid {
     margin: 0 -[$grid_col_spacing.album]px;
 }
-
+ */
 
 #kpgrid_wrap {
 /*    margin-right: auto;
@@ -1756,12 +1780,29 @@ body.k-lens-splash_fa {
     height: 100%;
     margin: 0;
     padding: 0;
+    text-align: center;
 }
 
 body.k-lens-splash div#left-container,
 body.k-lens-splash_fa div#left-container {
+	font-size: [$header_font_size]rem;
+    line-height: [$body_font_lh]rem;
+    width: 14rem;
+    min-width: 14rem;
+    height: auto;
+    min-height: 16.25rem;
+    margin: 3rem auto;
+    text-transform: $link_case;
+    background: $bgcolor_h;
     position: absolute;
     z-index: 100;
+    top: 45%;
+    bottom: 50%;
+    left: 0;
+    right: 0;
+    padding: 2rem;
+    transform: translateY(-50%);
+
 }
 
 body.k-lens-splash .spinner_pos,
@@ -2092,6 +2133,10 @@ footer.main span.right_text {
         margin: 0;
         padding: 0 1rem 0 0;
     }
+    body.k-lens-splash #mob-menu,
+    body.k-lens-splash_fa #mob-menu {
+    	display: none;
+    }
 
     .cover_content,
     div#text.essays,
@@ -2108,11 +2153,15 @@ footer.main span.right_text {
         max-height: [$site_title_img_scale_mobile]px;
     }
 
-    nav,
-    body.k-lens-splash div#left-container nav,
-    body.k-lens-splash_fa div#left-container nav {
+    nav {
         display: none;
         float: none;
+    }
+
+    body.k-lens-splash div#left-container nav,
+    body.k-lens-splash_fa div#left-container nav {
+/*         display: none;
+        float: none; */
     }
 
     footer.main {
@@ -2203,6 +2252,10 @@ footer.main span.right_text {
         font-size: 1.875rem;
         line-height: 2.5rem;
     }
+    article .k-content-embed {
+	    margin: 2rem auto;
+	    width: 100%;
+	}
     article time {
         display: block;
         float: none;

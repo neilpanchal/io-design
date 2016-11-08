@@ -7,6 +7,7 @@ window.SpinZero = {
 				.pillar({
 					items: '.kpgriditem',
 					spacing: this.spacing,
+					flush: true,
 					columns: {
 				        '479': this.mobCol,
 				        '767': this.mobCol,

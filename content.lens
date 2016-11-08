@@ -205,12 +205,10 @@
 	</div> <!-- close #content -->
 	<div id="prev-next">
 		<koken:previous>
-			<koken:link class="header-pag prev" bind_to_key="left" title="{{ language.view_previous }}">
-				Prev
-			</koken:link>
+			<koken:link class="header-page prev" bind_to_key="left" title="{{ language.view_previous }}"><span>←</span> Prev</koken:link>
 		</koken:previous>
 		<koken:next>
-			<koken:link class="header-pag next" bind_to_key="right" title="{{ language.view_next }}">Next</koken:link>
+			<koken:link class="header-page next" bind_to_key="right" title="{{ language.view_next }}">Next <span>→</span></koken:link>
 		</koken:next>
 	</div>
 	<script>

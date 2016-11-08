@@ -45,10 +45,52 @@
 		</koken:if>
 
 		<koken:if data="{{ settings.cover_type }}" equals="text">
+		<koken:not empty="album.description">
+		<section class="album-description">
 
-			<koken:include file="inc/col_head.html" />
+			{{ album.description paragraphs="true" }}
 
+		</section>
+		</koken:not>
 		</koken:if>
+		<section class="album-preview-grid">
+		<div id="preview-grid" class="{{ settings.spin_style }} spin_{{ settings.show_content_load_spin }}">
+			<koken:loop>
+				<div class="preview_item">
+					<koken:link lightbox="{{ settings.use_lightbox }}" class="img-hover">
+						<koken:img size="1:1" lazy="true" />
+						<koken:if true="settings.show_content_load_spin">
+							<koken:if data="settings.spin_style" equals="halfcirc"><div class="spinner_pos"><div class="spinner"></div></div>
+							</koken:if>
+						</koken:if>
+					</koken:link>
+
+				</div>
+			</koken:loop>
+		</div>
+		</section>
+		<script>
+		    $(function() {
+		        $('#preview-grid').pillar({
+		            items: '.preview_item',
+		            spacing : 10,
+					columns: {
+						'max': 10
+					},
+					gutter : 0,
+					tabletCol : 6,
+					mobCol : 4,
+					variability : 'none',
+					variability_amt : 3,
+					flush: true,
+					imagesLoaded: function() {
+                		$(this).closest('.preview_item').addClass('loaded')
+            		}
+		        });
+		    });
+		</script>
+
+
 
 		<section id="content">
 
@@ -73,6 +115,17 @@
 					</koken:has_tag>
 				</koken:has_tag>
 			</koken:has_tag>
+
+			<!-- Pillar-Photos -->
+<!-- 		<script>
+			SpinZero.Pillar.spacing = 32;
+			SpinZero.Pillar.maxCols = 10;
+			SpinZero.Pillar.tabletCol = 6;
+			SpinZero.Pillar.mobCol = 4;
+			SpinZero.Pillar.variability = 'none';
+			SpinZero.Pillar.variability_amt = 3;
+		</script> -->
+
 
 	</div>
 
