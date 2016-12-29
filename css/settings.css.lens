@@ -14,6 +14,92 @@ COMMENTS    = #4E4E50
 SELECTION   = #1F242F
 */
 
+/* FONTS
+================================================== */
+@font-face {
+ font-family: 'sf-display';
+ font-weight: normal;
+ font-style: normal;
+ src: url('fonts/sf-display/SanFranciscoDisplay-Regular.otf') format('opentype');
+}
+
+@font-face {
+ font-family: 'sf-display';
+ font-weight: normal;
+ font-style: italic;
+ src: url('fonts/sf-display/SanFranciscoDisplay-RegularItalic.otf') format('opentype');
+}
+
+@font-face {
+ font-family: 'sf-display';
+ font-weight: bold;
+ font-style: normal;
+ src: url('fonts/sf-display/SanFranciscoDisplay-Bold.otf') format('opentype');
+}
+
+@font-face {
+ font-family: 'sf-display';
+ font-weight: bold;
+ font-style: italic;
+ src: url('fonts/sf-display/SanFranciscoDisplay-BoldItalic.otf') format('opentype');
+}
+
+@font-face {
+ font-family: 'sf-text';
+ font-weight: normal;
+ font-style: normal;
+ src: url('fonts/sf-text/SanFranciscoText-Regular.otf') format('opentype');
+}
+
+@font-face {
+ font-family: 'sf-text';
+ font-weight: normal;
+ font-style: italic;
+ src: url('fonts/sf-text/SanFranciscoText-RegularItalic.otf') format('opentype');
+}
+
+@font-face {
+ font-family: 'sf-text';
+ font-weight: bold;
+ font-style: normal;
+ src: url('fonts/sf-text/SanFranciscoText-Bold.otf') format('opentype');
+}
+
+@font-face {
+ font-family: 'sf-text';
+ font-weight: bold;
+ font-style: italic;
+ src: url('fonts/sf-text/SanFranciscoText-BoldItalic.otf') format('opentype');
+}
+
+@font-face {
+ font-family: 'sf-mono';
+ font-weight: normal;
+ font-style: normal;
+ src: url('fonts/sf-mono/SFMono-Regular.otf') format('opentype');
+}
+
+@font-face {
+ font-family: 'sf-mono';
+ font-weight: normal;
+ font-style: italic;
+ src: url('fonts/sf-mono/SFMono-RegularItalic.otf') format('opentype');
+}
+
+@font-face {
+ font-family: 'sf-mono';
+ font-weight: bold;
+ font-style: normal;
+ src: url('fonts/sf-mono/SFMono-Bold.otf') format('opentype');
+}
+
+@font-face {
+ font-family: 'sf-mono';
+ font-weight: bold;
+ font-style: italic;
+ src: url('fonts/sf-mono/SFMono-BoldItalic.otf') format('opentype');
+}
+
 /* GENERAL
 ================================================== */
 
@@ -31,7 +117,7 @@ html {
 }
 
 body {
-    font-family: 'Roboto Mono', 'Courier New', Courier, 'Lucida Sans Typewriter', 'Lucida Typewriter', monospace;
+    font-family: "sf-text", 'Helvetica', Arial, sans-serif;
     font-size: 14px;
     font-weight: 400;
     font-variant: normal;
@@ -152,6 +238,7 @@ h4 {
 
 h1, h2, h3, h4, h5, h6, #left-container {
 	/* letter-spacing: 2px; */
+	font-family: "sf-mono", 'Menlo', 'Courier New', monospace;
 }
 
 h1, h2, h3, h4, h5, h6{
@@ -400,7 +487,7 @@ nav span.copyright {
 /* Logo */
 
 header.main .site-logo h1 a {
-	font-size: 32px;
+	/* font-size: 32px; */
 	line-height: 10px;
 }
 img.custom_logo {
@@ -647,10 +734,13 @@ article kbd {
     direction: ltr;
 }
 
-/*article pre {
+article pre {
+	font-family: "sf-mono", 'Menlo', 'Courier New', monospace;
+	line-height: 1.125rem;
+    font-size: 0.75rem;
     background: #EEE;
-    padding:1rem;
-}*/
+    padding: 0.75rem;
+}
 /*article code, */
 article samp,
 article kbd {
@@ -2189,7 +2279,7 @@ footer.main span.right_text {
     }
 
     div#content .pad {
-        padding: 0 10px;
+        /* padding: 0 10px; */
     }
 
     div#content-caption {
@@ -2199,13 +2289,13 @@ footer.main span.right_text {
 
     /* turn this on to position the arrows */
     div#content-pagination {
-        position: static;
+        /* position: static; */
         height: auto;
     }
 
     a.content-pag {
         font-size: 18px;
-        position: static;
+        /* position: static; */
         display: inline-block;
         width: auto;
         margin: 0;
