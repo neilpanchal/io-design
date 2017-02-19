@@ -75,7 +75,12 @@
 		            items: '.preview_item',
 		            spacing : 10,
 					columns: {
-						'max': 10
+						'479': 2,
+		                '767': 3,
+		                '959': 4,
+		                '1120': 5,
+		                '1280': 6,
+		                'max': 8
 					},
 					gutter : 0,
 					tabletCol : 6,
@@ -92,11 +97,11 @@
 
 
 
-		<section id="content">
+<!-- 		<section id="content">
 
 			<koken:include file="inc/grid.html" />
 
-		</section>
+		</section> -->
 
 			<koken:has_tag title="1x">
 				<koken:include file="inc/pillar-1x.html" />

@@ -12,18 +12,18 @@
 	"default_front_page": "essays",
 
 	"navigation_groups": {
-		"group_1": {
-			"label": "Group 1",
-			"description": "Links in the footer",
+		"art": {
+			"label": "Art",
+			"description": "Art Navigation Menu",
 			"defaults": [
-				"front", "albums", "essays"
+				"front", "albums"
 			]
 		},
-		"group_2": {
-			"label": "Group 2",
-			"description": "Generative Art Links",
+		"photography": {
+			"label": "Photography",
+			"description": "Photography Navigation Menu",
 			"defaults": [
-				"front", "albums", "essays"
+				"front", "albums"
 			]
 		}
 
