@@ -16,14 +16,18 @@
 			"label": "Art",
 			"description": "Art Navigation Menu",
 			"defaults": [
-				"front", "albums"
 			]
 		},
 		"photography": {
 			"label": "Photography",
 			"description": "Photography Navigation Menu",
 			"defaults": [
-				"front", "albums"
+			]
+		},
+		"contact": {
+			"label": "Contact",
+			"description": "Contact Navigation Menu",
+			"defaults": [
 			]
 		}
 

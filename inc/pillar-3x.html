@@ -1,9 +1,26 @@
 <!-- Pillar-3x -->
 <script>
-	SpinZero.Pillar.spacing = {{ settings.grid_col_spacing }};
-	SpinZero.Pillar.maxCols = 3;
-	SpinZero.Pillar.tabletCol = {{ settings.grid_col_num_tablet }};
-	SpinZero.Pillar.mobCol = {{ settings.grid_col_num_mob }};
-	SpinZero.Pillar.variability = '{{ settings.grid_col_type }}';
-	SpinZero.Pillar.variability_amt = {{ settings.grid_col_var_amt }};
+    $(function() {
+        $('#preview-grid').pillar({
+            items: '.preview_item',
+            spacing : 40,
+			columns: {
+				'479': 1,
+                '767': 2,
+                '959': 3,
+                '1120': 3,
+                '1280': 3,
+                'max': 3
+			},
+			gutter : 0,
+			tabletCol : 6,
+			mobCol : 4,
+			variability : 'none',
+			variability_amt : 3,
+			flush: true,
+			imagesLoaded: function() {
+        		$(this).closest('.preview_item').addClass('loaded')
+    		}
+        });
+    });
 </script>

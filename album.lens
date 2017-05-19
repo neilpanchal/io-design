@@ -58,7 +58,21 @@
 			<koken:loop>
 				<div class="preview_item">
 					<koken:link lightbox="{{ settings.use_lightbox }}" class="img-hover">
-						<koken:img size="1:1" lazy="true" />
+
+						<koken:has_tag title="1x1">
+							<koken:img size="1:1" lazy="true" />
+						<koken:else>
+							<koken:has_tag title="3x2">
+								<koken:img size="3:2" lazy="true" />
+							<koken:else>
+								<koken:has_tag title="16x9">
+									<koken:img size="16:9" lazy="true" />
+								<koken:else>
+									<koken:img lazy="true" />
+								</koken:has_tag>
+							</koken:has_tag>
+						</koken:has_tag>
+
 						<koken:if true="settings.show_content_load_spin">
 							<koken:if data="settings.spin_style" equals="halfcirc"><div class="spinner_pos"><div class="spinner"></div></div>
 							</koken:if>
@@ -69,68 +83,25 @@
 			</koken:loop>
 		</div>
 		</section>
-		<script>
-		    $(function() {
-		        $('#preview-grid').pillar({
-		            items: '.preview_item',
-		            spacing : 10,
-					columns: {
-						'479': 2,
-		                '767': 3,
-		                '959': 4,
-		                '1120': 5,
-		                '1280': 6,
-		                'max': 8
-					},
-					gutter : 0,
-					tabletCol : 6,
-					mobCol : 4,
-					variability : 'none',
-					variability_amt : 3,
-					flush: true,
-					imagesLoaded: function() {
-                		$(this).closest('.preview_item').addClass('loaded')
-            		}
-		        });
-		    });
-		</script>
 
 
-
-<!-- 		<section id="content">
-
-			<koken:include file="inc/grid.html" />
-
-		</section> -->
-
-			<koken:has_tag title="1x">
-				<koken:include file="inc/pillar-1x.html" />
+		<koken:has_tag title="1x">
+			<koken:include file="inc/pillar-1x.html" />
+		<koken:else>
+			<koken:has_tag title="2x">
+				<koken:include file="inc/pillar-2x.html" />
 			<koken:else>
-				<koken:has_tag title="2x">
-					<koken:include file="inc/pillar-2x.html" />
+				<koken:has_tag title="3x">
+					<koken:include file="inc/pillar-3x.html" />
 				<koken:else>
-					<koken:has_tag title="3x">
-						<koken:include file="inc/pillar-3x.html" />
+					<koken:has_tag title="4x">
+						<koken:include file="inc/pillar-4x.html" />
 					<koken:else>
-						<koken:has_tag title="4x">
-							<koken:include file="inc/pillar-4x.html" />
-						<koken:else>
-							<koken:include file="inc/pillar-photos.html" />
-						</koken:has_tag>
+						<koken:include file="inc/pillar-photos.html" />
 					</koken:has_tag>
 				</koken:has_tag>
 			</koken:has_tag>
-
-			<!-- Pillar-Photos -->
-<!-- 		<script>
-			SpinZero.Pillar.spacing = 32;
-			SpinZero.Pillar.maxCols = 10;
-			SpinZero.Pillar.tabletCol = 6;
-			SpinZero.Pillar.mobCol = 4;
-			SpinZero.Pillar.variability = 'none';
-			SpinZero.Pillar.variability_amt = 3;
-		</script> -->
-
+		</koken:has_tag>
 
 	</div>
 
